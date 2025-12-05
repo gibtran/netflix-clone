@@ -6,7 +6,10 @@ import Player from './pages/Player/Player'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase'
 import { ToastContainer } from 'react-toastify';
+import { useState } from 'react'
+import netflix_spinner from '../../assets/netflix_spinner.gif'
 const App = () => {
+  const [loading, setLoading] = useState(true); // trạng thái chờ xác thực
   const navigate = useNavigate()
   useEffect(() => {
     onAuthStateChanged(auth, async (user) =>{
@@ -17,9 +20,13 @@ const App = () => {
         console.log("logout")
         navigate('/login')
       }
+      setLoading(false);
     } )
-  }, [])
+  }, [navigate])
   return (
+    loading ? ((<div className='login-spinner'>
+          <img src={netflix_spinner} alt="" />
+        </div>)): 
     <div>
       <ToastContainer theme='dark'/>
       <Routes>
