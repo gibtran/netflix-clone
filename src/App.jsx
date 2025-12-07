@@ -7,7 +7,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase'
 import { ToastContainer } from 'react-toastify';
 import { useState } from 'react'
-import netflix_spinner from '../../assets/netflix_spinner.gif'
+import netflix_spinner from './assets/netflix_spinner.gif'
 const App = () => {
   const [loading, setLoading] = useState(true); // trạng thái chờ xác thực
   const navigate = useNavigate()
