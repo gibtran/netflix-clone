@@ -22,7 +22,7 @@ const App = () => {
       }
       setLoading(false);
     } )
-  }, [navigate])
+  }, [])
   return (
     loading ? ((<div className='login-spinner'>
           <img src={netflix_spinner} alt="" />
